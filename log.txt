@@ -1,0 +1,5 @@
+Starting server on port 80 with root directory /www.
+Logging.
+Logging.
+Logging.
+Logging.
