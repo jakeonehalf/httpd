@@ -23,11 +23,12 @@
 Config GlobalConfiguration = { 0 };
 
 char *default_root = "/www";
+char *default_index = "/index.html";
 
 void parse_arguments(int argc, char **argv)
 {
 	char c;
-	while ((c = getopt(argc, argv, "p:r:vdl:")) != -1) {
+	while ((c = getopt(argc, argv, "p:r:vdl:b:")) != -1) {
 		switch (c) {
 			case 'p':
 				GlobalConfiguration.port = atoi(optarg);
@@ -46,6 +47,9 @@ void parse_arguments(int argc, char **argv)
 				GlobalConfiguration.dolog = true;
 				GlobalConfiguration.logfile = malloc(strlen(optarg));
 				strcpy(GlobalConfiguration.logfile,optarg);
+				break;
+			case 'b':
+				GlobalConfiguration.backlog = atoi(optarg);
 				break;
 			case '?':
 				printf("Unknown argument %c.\n", c);
@@ -67,6 +71,14 @@ void parse_arguments(int argc, char **argv)
 			printf("Unable to open file %s.\n", GlobalConfiguration.logfile);
 			exit(1);
 		}
+	}
+
+	if (GlobalConfiguration.backlog == 0) {
+		GlobalConfiguration.backlog = 1000000;
+	}
+
+	if (GlobalConfiguration.index == NULL) {
+		GlobalConfiguration.index = default_index;
 	}
 
 	return;

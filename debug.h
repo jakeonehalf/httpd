@@ -16,7 +16,7 @@
 
 #define debug_printf(format,...) \
 		do { 																	\
-			if (GlobalConfiguration.verbose) {									\
+			if (GlobalConfiguration.verbose && !GlobalConfiguration.daemonize) {\
 				printf(format, ##__VA_ARGS__);									\
 			}																	\
 			if (GlobalConfiguration.dolog) {									\

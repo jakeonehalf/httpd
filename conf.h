@@ -19,4 +19,7 @@ typedef struct Config_t {
 	bool		dolog;
 	char		*logfile;
 	FILE		*logfp;
+	int			listenfd;
+	int			backlog;
+	char		*index;
 } Config;
