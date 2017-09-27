@@ -23,7 +23,11 @@
 Config GlobalConfiguration = { 0 };
 
 char *default_root = "/www";
-char *default_index = "/index.html";
+char *default_index = "/index.cgi";
+char *default_cgi_bin = "/bin/bash";
+char *default_bash_bin = "/bin/bash";
+char *default_python_bin = "/bin/python";
+char *default_perl_bin = "/bin/perl";
 
 void parse_arguments(int argc, char **argv)
 {
@@ -79,6 +83,10 @@ void parse_arguments(int argc, char **argv)
 
 	if (GlobalConfiguration.index == NULL) {
 		GlobalConfiguration.index = default_index;
+	}
+
+	if (GlobalConfiguration.cgi_bin == NULL) {
+		GlobalConfiguration.cgi_bin = default_cgi_bin;
 	}
 
 	return;

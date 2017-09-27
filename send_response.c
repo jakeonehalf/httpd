@@ -28,6 +28,49 @@
 #include "debug.h"
 #include "parse_arguments.h"
 
+static void send_file(int client, char *path)
+{
+	int fd;
+	if ((fd = open(path, O_RDONLY)) != -1) {
+		send(client, "HTTP/1.0 200 OK\n\n", 17, 0);
+		char data_to_send[1024];
+		int bytes_read;
+		while ((bytes_read = read(fd, data_to_send, 1024)) > 0) {
+			debug_printf("%s\n", data_to_send);
+			write(client, data_to_send, bytes_read);
+		}
+	} else {
+		write(client, "HTTP/1.0 404 Not Found\n", 23);
+	}
+}
+
+static void send_cgi(int client, char *path)
+{
+	FILE *fd;
+
+	char command[1024] = { 0 };
+	char data_to_send[1024];
+	int bytes_read;
+
+	debug_printf("Command: %s %s\n", GlobalConfiguration.cgi_bin, path);
+
+	snprintf(command, 1024, "%s %s", GlobalConfiguration.cgi_bin, path);
+
+	debug_printf("Command: %s\n", command);
+
+	fd = popen(command, "r");
+
+	if (fd == NULL) {
+		debug_printf("Command unable to run %s.\n", command);
+		return;
+	}
+
+	while (fgets(data_to_send, sizeof(data_to_send), fd)) {
+		debug_printf("%s\n", data_to_send);
+		write(client, data_to_send, strlen(data_to_send));
+	}
+}
+
 void send_response(int client)
 {
 	char *message = malloc(sizeof(char) * GlobalConfiguration.backlog);
@@ -58,16 +101,10 @@ void send_response(int client)
 
 				debug_printf("Requested file: %s\n", path);
 
-				int fd;
-				if ((fd = open(path, O_RDONLY)) != -1) {
-					send(client, "HTTP/1.0 200 OK\n\n", 17, 0);
-					char data_to_send[1024];
-					int bytes_read;
-					while (bytes_read = read(fd, data_to_send, 1024) > 0) {
-						write(client, data_to_send, bytes_read);
-					}
+				if (strstr(path, ".cgi")) {
+					send_cgi(client, path);
 				} else {
-					write(client, "HTTP/1.0 404 Not Found\n", 23);
+					send_file(client, path);
 				}
 
 				free(path);

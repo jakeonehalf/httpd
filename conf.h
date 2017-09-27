@@ -22,4 +22,5 @@ typedef struct Config_t {
 	int			listenfd;
 	int			backlog;
 	char		*index;
+	char		*cgi_bin;
 } Config;

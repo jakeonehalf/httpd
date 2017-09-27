@@ -27,6 +27,17 @@
 #include "debug.h"
 #include "parse_arguments.h"
 #include "send_response.h"
+
+static volatile bool running = true;
+
+void exit_handler(int v)
+{
+	running = false;
+	debug_printf("Received close signal.\n");
+
+	close(GlobalConfiguration.listenfd);
+	exit(0);
+}
  
 int main(int argc, char **argv)
 {
@@ -57,30 +68,25 @@ int main(int argc, char **argv)
 		close(STDERR_FILENO);
 	}
 
-	struct addrinfo hints = { 0 }, *res, *p;
-	hints.ai_family = AF_INET;
-	hints.ai_socktype = SOCK_STREAM;
-	hints.ai_flags = AI_PASSIVE;
+	struct sockaddr_in server_address = { 0 };
 
-	char port_string[6];
-	snprintf(port_string, 6, "%hu", GlobalConfiguration.port);
-	if (getaddrinfo(NULL, port_string, &hints, &res) != 0) {
-		debug_printf("Error getaddrinfo().\n");
+	GlobalConfiguration.listenfd = socket(AF_INET, SOCK_STREAM, 0);
+
+	if (GlobalConfiguration.listenfd < 0) {
+		debug_printf("Unable to open socket.\n");
 		exit(1);
 	}
 
-	for (p = res; p != NULL; p = p->ai_next) {
-		GlobalConfiguration.listenfd = socket(p->ai_family, p->ai_socktype, 0);
-		if (GlobalConfiguration.listenfd == -1) continue;
-		if (bind(GlobalConfiguration.listenfd, p->ai_addr, p->ai_addrlen) == 0) break;
-	}
+	debug_printf("Listen FD = %d\n", GlobalConfiguration.listenfd);
 
-	if (p == NULL) {
-		debug_printf("Failed to obtain socket.\n");
+	server_address.sin_family = AF_INET;
+	server_address.sin_addr.s_addr = INADDR_ANY;
+	server_address.sin_port = htons(GlobalConfiguration.port);
+
+	if (bind(GlobalConfiguration.listenfd, (struct sockaddr *) &server_address, sizeof(server_address)) < 0) {
+		debug_printf("Unable to bind to socket.\n");
 		exit(1);
 	}
-
-	freeaddrinfo(res);
 
 	if (listen(GlobalConfiguration.listenfd, GlobalConfiguration.backlog)) {
 		debug_printf("Failed to listen to socket.\n");
@@ -89,14 +95,16 @@ int main(int argc, char **argv)
 
 	debug_printf("Started server on port %hu with root directory %s.\n", GlobalConfiguration.port, GlobalConfiguration.root);
 
+	signal(SIGINT, exit_handler);
+
 	// Infinite loop.
-	for(;;) {
+	while (running) {
 		struct sockaddr_in clientaddr;
 		socklen_t addrlen = sizeof(clientaddr);
 		int client;
 		if (client = accept(GlobalConfiguration.listenfd, (struct sockaddr *)&clientaddr, &addrlen)) {
 			if (client < 0) {
-				debug_printf("Error aaccepting.\n");
+				debug_printf("Error accepting.\n");
 				continue;
 			}
 

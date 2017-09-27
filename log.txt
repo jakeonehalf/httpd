@@ -1,5 +1,340 @@
-Starting server on port 80 with root directory /www.
-Logging.
-Logging.
-Logging.
-Logging.
+Listen FD = 4
+Started server on port 80 with root directory ./.
+GET / HTTP/1.1
+Host: 10.10.0.57
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+
+Requested file: .//index.cgi
+Command: /bin/bash .//index.cgi
+Command: /bin/bash .//index.cgi
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+
+<h1>My First Heading</h1>
+
+
+
+<p>My first paragraph.</p>
+
+
+
+</body>
+
+</html>
+Client disconnected unexpectedly.
+GET / HTTP/1.1
+Host: 10.10.0.57
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+
+Requested file: .//index.cgi
+Command: /bin/bash .//index.cgi
+Command: /bin/bash .//index.cgi
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+
+<h1>My First Heading</h1>
+
+
+
+<p>My first paragraph.</p>
+
+
+
+</body>
+
+</html>
+Client disconnected unexpectedly.
+GET / HTTP/1.1
+Host: 10.10.0.57
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+
+Requested file: .//index.cgi
+Command: /bin/bash .//index.cgi
+Command: /bin/bash .//index.cgi
+Hello World!!!!!
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+
+<h1>My First Heading</h1>
+
+
+
+<p>My first paragraph.</p>
+
+
+
+</body>
+
+</html>
+Client disconnected unexpectedly.
+GET / HTTP/1.1
+Host: 10.10.0.57
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+
+Requested file: .//index.cgi
+Command: /bin/bash .//index.cgi
+Command: /bin/bash .//index.cgi
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+
+<h1>My First Heading</h1>
+
+
+
+<p>My first paragraph.</p>
+
+
+
+</body>
+
+</html>
+Client disconnected unexpectedly.
+GET / HTTP/1.1
+Host: 10.10.0.57
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+
+Requested file: .//index.cgi
+Command: /bin/bash .//index.cgi
+Command: /bin/bash .//index.cgi
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+
+<h1>My First Heading</h1>
+
+
+
+<p>My first paragraph.</p>
+
+
+
+<script src="index.js">
+
+</script>
+
+
+
+</body>
+
+</html>
+GET /index.js HTTP/1.1
+Host: 10.10.0.57
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+Accept: */*
+Referer: http://10.10.0.57/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+
+Requested file: .//index.js
+GET / HTTP/1.1
+Host: 10.10.0.57
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+
+Requested file: .//index.cgi
+Command: /bin/bash .//index.cgi
+Command: /bin/bash .//index.cgi
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+
+<h1>My First Heading</h1>
+
+
+
+<p>My first paragraph.</p>
+
+
+
+<script src="index.js">
+
+</script>
+
+
+
+</body>
+
+</html>
+GET /index.js HTTP/1.1
+Host: 10.10.0.57
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+Accept: */*
+Referer: http://10.10.0.57/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+
+Requested file: .//index.js
+GET / HTTP/1.1
+Host: 10.10.0.57
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+
+Requested file: .//index.cgi
+Command: /bin/bash .//index.cgi
+Command: /bin/bash .//index.cgi
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+
+<h1>My First Heading</h1>
+
+
+
+<p>My first paragraph.</p>
+
+
+
+<script src="index.js">
+
+</script>
+
+
+
+</body>
+
+</html>
+GET /index.js HTTP/1.1
+Host: 10.10.0.57
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+Accept: */*
+Referer: http://10.10.0.57/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+
+Requested file: .//index.js
+GET / HTTP/1.1
+Host: 10.10.0.57
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+
+Requested file: .//index.cgi
+Command: /bin/bash .//index.cgi
+Command: /bin/bash .//index.cgi
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+
+<h1>My First Heading</h1>
+
+
+
+<p>My first paragraph.</p>
+
+
+
+<script src="index.js">
+
+</script>
+
+
+
+</body>
+
+</html>
+GET /index.js HTTP/1.1
+Host: 10.10.0.57
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36
+Accept: */*
+Referer: http://10.10.0.57/
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.8
+
+
+Requested file: .//index.js
